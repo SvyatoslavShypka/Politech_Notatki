@@ -11,7 +11,7 @@ import org.springframework.core.env.Environment;
 
 import java.nio.charset.StandardCharsets;
 
-@Slf4j
+//@Slf4j
 @Configuration
 public class FlywayConfiguration {
 
@@ -42,7 +42,6 @@ public class FlywayConfiguration {
                     .failOnMissingLocations(true)
                     .baselineOnMigrate(true)
                     .load();
-//            log.info("Repair:{}", isRepair);
             if (isRepair) {
                 flyway.repair();
             } else {

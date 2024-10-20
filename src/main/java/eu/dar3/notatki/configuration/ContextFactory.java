@@ -8,7 +8,6 @@ public class ContextFactory implements ApplicationContextFactory {
 
     @Override
     public ConfigurableApplicationContext create(WebApplicationType webApplicationType) {
-        LoggerConfiguration.setupLogger();
         return ApplicationContextFactory.DEFAULT.create(webApplicationType);
     }
 }

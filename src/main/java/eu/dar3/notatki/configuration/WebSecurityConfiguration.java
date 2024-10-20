@@ -34,8 +34,7 @@ public class WebSecurityConfiguration {
 
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
                 .logout(LogoutConfigurer::permitAll);
-        System.out.println("Password \"user\": = " + new BCryptPasswordEncoder().encode("user"));
-        System.out.println("Password \"admin\": = " + new BCryptPasswordEncoder().encode("admin"));
+//        System.out.println("Password \"user\": = " + new BCryptPasswordEncoder().encode("user"));
 
         return http.build();
     }
