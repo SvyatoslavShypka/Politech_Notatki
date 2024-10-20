@@ -25,23 +25,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'com.h2database:h2:2.1.214'
-	implementation 'org.flywaydb:flyway-maven-plugin:9.20.0'
+	implementation 'com.h2database:h2:2.3.232'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	annotationProcessor 'org.projectlombok:lombok'
-
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.projectlombok:lombok:1.18.26'
 }
-
-tasks.named('test') {
-	useJUnitPlatform()
-}
-
-test {
-	useJUnitPlatform()
-}
-
-//javadoc {
-//	source = sourceSets.main.allJava
-//}

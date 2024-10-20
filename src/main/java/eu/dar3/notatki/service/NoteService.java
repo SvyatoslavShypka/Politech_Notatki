@@ -56,23 +56,19 @@ public class NoteService {
         return jdbcTemplate.queryForObject(
                 query,
                 Map.of("id", id),
-                (resultSet, index) -> {
-                    return NoteDto.of(
-                            resultSet.getLong("id"),
-                            resultSet.getString("title"),
-                            resultSet.getString("content")
-                    );
-                }
+                (resultSet, index) -> NoteDto.of(
+                        resultSet.getLong("id"),
+                        resultSet.getString("title"),
+                        resultSet.getString("content")
+                )
         );
     }
 
     @PostConstruct
     public void construct() {
-//        log.info("CustomerService construct");
     }
 
     @PreDestroy
     public void destroy() {
-//        log.info("CustomerService destroy");
     }
 }
