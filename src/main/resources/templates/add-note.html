@@ -19,14 +19,19 @@
         method="post"
       >
         <label for="title">Title</label>
-        <input type="text" th:field="*{title}" id="title" placeholder="Title" />
+        <input
+          type="text" th:field="*{title}" id="title"
+          placeholder="Title (min 3 characters)"
+          minlength="3"
+          required />
         <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
         <label for="content">Content</label>
         <input
           type="text"
           th:field="*{content}"
           id="content"
-          placeholder="Content"
+          placeholder="Content (max 100 characters)"
+          maxlength="100"
         />
         <span
           th:if="${#fields.hasErrors('content')}"
@@ -50,5 +55,25 @@
         crossorigin="anonymous"
       ></script>
     </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelector('form').addEventListener('submit', function (event) {
+          var title = document.getElementById('title').value;
+          var content = document.getElementById('content').value;
+
+          if (title.length < 3) {
+            alert("Title must be at least 3 characters long");
+            event.preventDefault();
+          }
+
+          if (content.length > 100) {
+            alert("Content must be no more than 100 characters long");
+            event.preventDefault();
+          }
+        });
+      });
+    </script>
+
   </body>
 </html>
